@@ -1,17 +1,19 @@
-# How to make and package a Java Console Applications
+# How to make and package a Java Console Application
 
 ## Create console app
 
-Create you basic console application with a main methos somewhere. You can use this mvn archetype if you like.
+Create you basic console application with your main method. You can use this mvn archetype if you like for a simple 'hello world' console application.
 
 <pre class='prettyprint linenums'>
 mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=5-SNAPSHOT
 </pre>
 
-## Package and add a manifest
+## Package and add a manifest information
 
-You need to add the following shaded plugin to the maven pom.xml. This packages all the dependanct .jar's into an 'uber' jar that 
-be distributed on it's own as your applicaiton.
+You need to add the following shaded plugin to the maven pom.xml. This packages all the dependant  .jar's into an 'uber' jar that 
+be distributed on its own as your application. As well as adding a reference in the .jar's manifest file specifying which is the 
+class with the main method to run. If you don't do this second part, then when you run the application via the java.exe command
+you also have to specify which is the main class.
 
 <pre class='prettyprint linenums'>&lt;build>
   &lt;plugins>
