@@ -1,10 +1,17 @@
-# MyJavaConsoleApp
+# How to make and package a Java Console Applications
 
- - How to make a Java console application
+## Create console app
 
- - mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=5-SNAPSHOT
+Create you basic console application with a main methos somewhere. You can use this mvn archetype if you like.
 
- - Add the following plugin to the maven pom.xml
+<pre class='prettyprint linenums'>
+mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=5-SNAPSHOT
+</pre>
+
+## Package and add a manifest
+
+You need to add the following shaded plugin to the maven pom.xml. This packages all the dependanct .jar's into an 'uber' jar that 
+be distributed on it's own as your applicaiton.
 
 <pre class='prettyprint linenums'>&lt;build>
   &lt;plugins>
@@ -36,12 +43,24 @@
 &lt;/build&gt;
 </pre>
 
-To build: mvn install
-To run: java -jar target\MyJavaConsoleApp-1.0-SNAPSHOT.jar
+## Build
 
- - Main class with main method
- - Arguments
- - Spring
- - Injecting arguments into spring context
- - Packaging a 'uber jar' using shaded plugin.
- - Running via java.exe
+<pre class='prettyprint linenums'>mvn install</pre>
+
+## To run
+
+Make sure you are in the folder with the .jar file and run:
+
+<pre class='prettyprint linenums'>java -jar MyJavaConsoleApp-1.0-SNAPSHOT.jar</pre>
+
+ 
+## To do
+
+<ul>
+	<li>Arguments</li>
+	<li>Spring</li>
+	<li>Injecting arguments into spring context</li>
+	<li>Running via java.exe</li>
+</ul>
+
+ 
